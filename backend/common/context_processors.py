@@ -1,6 +1,10 @@
+import logging
 import os
 
 from django.conf import settings
+
+
+logger = logging.getLogger(__name__)
 
 
 def _default_admin_environment_label():
@@ -8,7 +12,19 @@ def _default_admin_environment_label():
         "DJANGO_SETTINGS_MODULE", ""
     )
     if settings_module:
-        return settings_module.rsplit(".", maxsplit=1)[-1].replace("_", " ").title()
+        try:
+            environment_label = (
+                settings_module.rsplit(".", maxsplit=1)[-1].replace("_", " ").title()
+            )
+            if not environment_label:
+                raise IndexError
+            return environment_label
+        except IndexError:
+            logger.warning(
+                "Could not determine admin environment label from SETTINGS_MODULE: %s",
+                settings_module,
+            )
+            return "Unknown"
 
     return "Local"
 

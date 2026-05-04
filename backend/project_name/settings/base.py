@@ -182,11 +182,6 @@ CELERY_EVENT_QUEUE_TTL = config("CELERY_EVENT_QUEUE_TTL", cast=float, default=5.
 # Sentry
 SENTRY_DSN = config("SENTRY_DSN", default="")
 COMMIT_SHA = config("RENDER_GIT_COMMIT", default="")
-ADMIN_ENVIRONMENT_LABEL = config("ADMIN_ENVIRONMENT_LABEL", default="")
-ADMIN_ENVIRONMENT_COLOR = config("ADMIN_ENVIRONMENT_COLOR", default="#111827")
-ADMIN_ENVIRONMENT_BACKGROUND_COLOR = config(
-    "ADMIN_ENVIRONMENT_BACKGROUND_COLOR", default="#f59e0b"
-)
 
 # Fix for Safari 12 compatibility issues, please check:
 # https://github.com/vintasoftware/safari-samesite-cookie-issue
@@ -257,3 +252,8 @@ DEFENDER_LOGIN_FAILURE_LIMIT = 3
 DEFENDER_COOLOFF_TIME = 300  # 5 minutes
 DEFENDER_LOCKOUT_TEMPLATE = "defender/lockout.html"
 DEFENDER_REDIS_URL = config("REDIS_URL")
+
+# Admin Env Label"
+ADMIN_ENVIRONMENT_LABEL = config("ADMIN_ENVIRONMENT_LABEL", default="")
+ADMIN_ENVIRONMENT_COLOR = config("ADMIN_ENVIRONMENT_COLOR", default="#111827")
+ADMIN_ENVIRONMENT_BACKGROUND_COLOR = config("ADMIN_ENVIRONMENT_BACKGROUND_COLOR", default="#f59e0b")
