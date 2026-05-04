@@ -71,6 +71,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "common.context_processors.admin_environment_label",
                 "common.context_processors.sentry_dsn",
                 "common.context_processors.commit_sha",
             ],
@@ -251,3 +252,8 @@ DEFENDER_LOGIN_FAILURE_LIMIT = 3
 DEFENDER_COOLOFF_TIME = 300  # 5 minutes
 DEFENDER_LOCKOUT_TEMPLATE = "defender/lockout.html"
 DEFENDER_REDIS_URL = config("REDIS_URL")
+
+# Admin Env Label
+ADMIN_ENVIRONMENT_LABEL = config("ADMIN_ENVIRONMENT_LABEL", default="")
+ADMIN_ENVIRONMENT_COLOR = config("ADMIN_ENVIRONMENT_COLOR", default="#111827")
+ADMIN_ENVIRONMENT_BACKGROUND_COLOR = config("ADMIN_ENVIRONMENT_BACKGROUND_COLOR", default="#f59e0b")
